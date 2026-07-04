@@ -5,7 +5,6 @@ import json
 import os
 import datetime
 
-nest_asyncio.apply()
 load_dotenv()
 
 from groq import Groq
