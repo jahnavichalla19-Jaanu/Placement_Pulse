@@ -2,10 +2,12 @@ import cognee
 from dotenv import load_dotenv
 import nest_asyncio
 import json
+
 import os
 
-os.environ["COGNEE_STORAGE_PATH"] = "/mount/src/placement_pulse/data"
-os.makedirs("/mount/src/placement_pulse/data", exist_ok=True)
+os.environ["COGNEE_STORAGE_PATH"] = "/tmp/cognee_data"
+os.makedirs("/tmp/cognee_data", exist_ok=True)
+
 
 import datetime
 
