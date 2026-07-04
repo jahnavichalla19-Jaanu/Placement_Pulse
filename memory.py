@@ -6,6 +6,10 @@ import json
 import os
 
 
+os.environ["COGNEE_SYSTEM_PATH"] = "/mount/src/placement_pulse/system"
+os.makedirs("/mount/src/placement_pulse/system", exist_ok=True)
+
+
 storage_path = "/mount/src/placement_pulse/data"
 
 
