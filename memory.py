@@ -1,23 +1,22 @@
-import cognee
 from dotenv import load_dotenv
 import nest_asyncio
 import json
 
 import os
+import shutil
 
-
-os.environ["COGNEE_SYSTEM_PATH"] = "/mount/src/placement_pulse/system"
-os.makedirs("/mount/src/placement_pulse/system", exist_ok=True)
-
-
+system_path = "/mount/src/placement_pulse/system"
 storage_path = "/mount/src/placement_pulse/data"
 
-
+os.makedirs(system_path, exist_ok=True)
 os.makedirs(storage_path, exist_ok=True)
 
-
+os.environ["COGNEE_SYSTEM_PATH"] = system_path
 os.environ["COGNEE_STORAGE_PATH"] = storage_path
 
+shutil.rmtree("/home/adminuser/venv/lib/python3.14/site-packages/cognee/.cognee_system", ignore_errors=True)
+
+import cognee
 
 import datetime
 
