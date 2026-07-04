@@ -5,8 +5,14 @@ import json
 
 import os
 
-os.environ["COGNEE_STORAGE_PATH"] = "/tmp/cognee_data"
-os.makedirs("/tmp/cognee_data", exist_ok=True)
+
+storage_path = "/mount/src/placement_pulse/data"
+
+
+os.makedirs(storage_path, exist_ok=True)
+
+
+os.environ["COGNEE_STORAGE_PATH"] = storage_path
 
 
 import datetime
