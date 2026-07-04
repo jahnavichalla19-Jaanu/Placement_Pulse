@@ -1,8 +1,8 @@
 streamlit
-cognee
 groq
 python-dotenv
 nest-asyncio
-streamlit==1.33.0
+streamlit==1.58.0
+cognee==0.1.20
+starlette==0.36.3
 anyio==4.3.0
-starlette==0.37.2
