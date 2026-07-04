@@ -3,6 +3,10 @@ from dotenv import load_dotenv
 import nest_asyncio
 import json
 import os
+
+
+os.makedirs("/mount/src/placement_pulse/data", exist_ok=True)
+
 import datetime
 
 load_dotenv()
