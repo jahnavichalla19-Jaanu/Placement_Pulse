@@ -18,6 +18,10 @@ shutil.rmtree("/home/adminuser/venv/lib/python3.14/site-packages/cognee/.cognee_
 
 import cognee
 
+print("Cognee version:", cognee.__version__)
+print("Current working directory:", os.getcwd())
+print("COGNEE_SYSTEM_PATH:", os.getenv("COGNEE_SYSTEM_PATH"))
+
 import datetime
 
 load_dotenv()
@@ -27,8 +31,6 @@ groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 DATA_FILE = "placements.json"
 GOALS_FILE = "goals.json"
-
-# ---------- JSON helpers ----------
 
 def load_data():
     if os.path.exists(DATA_FILE):
@@ -40,7 +42,6 @@ def save_data(entries):
     with open(DATA_FILE, "w") as f:
         json.dump(entries, f, indent=2)
 
-# ---------- remember() — instant save ----------
 
 async def remember(text: str):
     entries = load_data()
@@ -50,7 +51,6 @@ async def remember(text: str):
     # cognify runs separately via improve() — not on every save
     await cognee.add(text, dataset_name="placement_data")
 
-# ---------- recall() — fast local search ----------
 
 async def recall(question: str):
     entries = load_data()
@@ -73,10 +73,7 @@ async def recall(question: str):
         best_score = matches[0][0]
         return [m[1] for m in matches if m[0] == best_score]
     return []
-
-# ---------- improve() — real Cognee graph build ----------
-# called manually from UI, not on every save
-# this is the real Cognee intelligence trigger
+]
 
 async def improve():
     await cognee.cognify()
@@ -189,7 +186,6 @@ async def forget(dataset: str):
     except Exception:
         pass
 
-# ---------- Goals ----------
 
 def load_goals():
     if os.path.exists(GOALS_FILE):
