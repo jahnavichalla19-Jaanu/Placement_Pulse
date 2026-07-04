@@ -1,0 +1,5 @@
+streamlit
+cognee
+groq
+python-dotenv
+nest-asyncio
