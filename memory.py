@@ -4,7 +4,7 @@ import nest_asyncio
 import json
 import os
 
-
+os.environ["COGNEE_STORAGE_PATH"] = "/mount/src/placement_pulse/data"
 os.makedirs("/mount/src/placement_pulse/data", exist_ok=True)
 
 import datetime
