@@ -18,9 +18,6 @@ shutil.rmtree("/home/adminuser/venv/lib/python3.14/site-packages/cognee/.cognee_
 
 import cognee
 
-print("Cognee version:", cognee.__version__)
-print("Current working directory:", os.getcwd())
-print("COGNEE_SYSTEM_PATH:", os.getenv("COGNEE_SYSTEM_PATH"))
 
 import datetime
 
