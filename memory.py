@@ -4,7 +4,6 @@ import nest_asyncio
 import json
 import os
 import datetime
-import google.generativeai as genai
 
 nest_asyncio.apply()
 load_dotenv()
