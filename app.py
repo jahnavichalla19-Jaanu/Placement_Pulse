@@ -3,7 +3,10 @@ import streamlit as st
 import asyncio        
 import datetime                       
 from memory import remember, recall, improve, forget 
-from dotenv import load_dotenv                
+from dotenv import load_dotenv          
+
+import os
+st.write("DEBUG - Groq key ends with:", os.getenv("GROQ_API_KEY", "NOT SET")[-6:])
 
 load_dotenv()
 from memory import remember, recall, improve, forget, add_goal, check_due_reminders, mark_reminder_shown, delete_goal, load_goals, toggle_goal_completed, load_data, get_company_insight
