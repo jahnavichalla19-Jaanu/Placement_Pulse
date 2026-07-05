@@ -70,7 +70,6 @@ async def recall(question: str):
         best_score = matches[0][0]
         return [m[1] for m in matches if m[0] == best_score]
     return []
-]
 
 async def improve():
     await cognee.cognify()
